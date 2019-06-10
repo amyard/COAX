@@ -49,6 +49,7 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
     'backend.user.apps.UsersConfig',
+    'backend.posts.apps.PostsConfig',
 ]
 
 THIRD_PARTY_APPS = []

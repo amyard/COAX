@@ -33,7 +33,7 @@ DATABASES = {
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 
-# AUTH_USER_MODEL='core.User'
+AUTH_USER_MODEL = 'user.User'
 
 # Application definition
 DJANGO_APPS = [
@@ -47,7 +47,9 @@ DJANGO_APPS = [
     'rest_framework.authtoken',
 ]
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    'backend.user.apps.UsersConfig',
+]
 
 THIRD_PARTY_APPS = []
 

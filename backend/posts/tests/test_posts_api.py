@@ -120,3 +120,40 @@ class PrivatePostApiTest(TestCase):
         self.assertEqual(categories.count(), 2)
         self.assertIn(cat1, categories)
         self.assertIn(cat2, categories)
+
+    # UPDATE
+    def test_partial_update_post(self):
+        post = sample_post(user=self.user)
+        post.category.add(sample_category())
+        new_category = sample_category(name='Work')
+
+        payload = {
+            'title': 'Awesome 2',
+            'category': [new_category.id]
+        }
+        url = detail_url(post.id)
+
+        self.client.patch(url, payload)
+        post.refresh_from_db()
+
+        self.assertEqual(post.title, payload['title'])
+        cat = post.category.all()
+        self.assertEqual(len(cat), 1)
+        self.assertIn(new_category, cat)
+
+    def test_full_update_post(self):
+        post = sample_post(user=self.user)
+        post.category.add(sample_category())
+        payload = {
+            'title': 'Awesome 2',
+            'content': 'BLAAAA OOO AAA'
+        }
+        url = detail_url(post.id)
+        self.client.put(url, payload)
+
+        post.refresh_from_db()
+        self.assertEqual(post.title, payload['title'])
+        self.assertEqual(post.content, payload['content'])
+
+        category = post.category.all()
+        self.assertEqual(len(category), 0)

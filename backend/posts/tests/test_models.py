@@ -23,3 +23,9 @@ class ModelTests(TestCase):
             content='Here will be new content'
         )
         self.assertEqual(str(post), post.title)
+
+    def test_ip_access_str(self):
+        '''  ip access string representation  '''
+        ip = models.IpAccess.objects.create(ip='192.168.0.1')
+
+        self.assertEqual(str(ip), ip.ip)

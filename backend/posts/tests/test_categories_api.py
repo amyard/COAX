@@ -45,7 +45,7 @@ class PrivateCategoryApiTest(TestCase):
 
     def test_create_category_success(self):
         '''  create new category  '''
-        payload = {'name': 'Travel'}
+        payload = {'name': 'Job'}
         self.client.post(CATEGORY_URL, payload)
 
         exists = Category.objects.filter(name=payload['name']).exists()

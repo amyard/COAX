@@ -5,7 +5,7 @@ from django.utils import timezone
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique = True)
 
     def __str__(self):
         return self.name
@@ -20,3 +20,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class IpAccess(models.Model):
+    ip = models.GenericIPAddressField(blank=True, null=True)
+
+    def __str__(self):
+        return self.ip

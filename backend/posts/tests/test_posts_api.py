@@ -6,11 +6,15 @@ from rest_framework import status
 from rest_framework.test import APIClient
 
 from backend.posts.models import Post, Category
-from backend.posts.serializers import PostSerializer
+from backend.posts.serializers import PostSerializer, PostDetailSerializer
 
 
 POST_URL = reverse('posts:post-list')
 
+
+def detail_url(post_id):
+    '''  RETURN POST DETAIL URL   '''
+    return reverse('posts:post-detail', args=[post_id])
 
 
 def sample_category(name='Home'):
@@ -70,3 +74,16 @@ class PrivatePostApiTest(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(len(res.data), 1)
+
+        # DETAIL
+        def test_view_post_detail(self):
+            '''  viewing the post detail  '''
+            post = sample_post(user=self.user)
+            post.category.add(sample_category())
+
+            url = detail_url(post.id)
+            res = self.client.get(url)
+
+            serializer = PostDetailSerializer(post)
+
+            self.assertEqual(res.data, serializer.data)

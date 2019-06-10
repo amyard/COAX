@@ -28,3 +28,9 @@ class PostViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return self.queryset.filter(author = self.request.user).order_by('-id')
+
+    def get_serializer_class(self):
+        '''  return needed serializer class  '''
+        if self.action == 'retrieve':
+            return serializers.PostDetailSerializer
+        return self.serializer_class

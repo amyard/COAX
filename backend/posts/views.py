@@ -3,13 +3,14 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAdminUser
 
 from backend.posts.models import Category, Post
-
+from backend.posts.permissions import IpAccessPermission
 from backend.posts import serializers
 
 
+
 class CategoryViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.CreateModelMixin):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAdminUser,)
+    # authentication_classes = (TokenAuthentication,)
+    permission_classes = (IpAccessPermission, IsAdminUser, )
     queryset = Category.objects.all()
     serializer_class = serializers.CategorySerializer
 
@@ -24,7 +25,7 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.PostSerializer
     queryset = Post.objects.all()
     authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAdminUser,)
+    permission_classes = (IsAdminUser, )
 
     def get_queryset(self):
         return self.queryset.filter(author = self.request.user).order_by('-id')

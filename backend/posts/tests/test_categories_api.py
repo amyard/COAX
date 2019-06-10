@@ -23,13 +23,14 @@ class PublicCategoryApiTest(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 
-
+from backend.posts.permissions import IpAccessPermission
 class PrivateCategoryApiTest(TestCase):
 
     def setUp(self):
+        self.permission = IpAccessPermission()
         self.client = APIClient()
         self.user = get_user_model().objects.create_user('test@gmail.com', 'zaza1234')
-        self.client.force_authenticate(self.user)
+        # self.client.force_authenticate(self.user, token = '9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b')
 
     def test_retrieve_category_list(self):
         '''  retrive list of categories  '''

@@ -75,15 +75,48 @@ class PrivatePostApiTest(TestCase):
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(len(res.data), 1)
 
-        # DETAIL
-        def test_view_post_detail(self):
-            '''  viewing the post detail  '''
-            post = sample_post(user=self.user)
-            post.category.add(sample_category())
+    # DETAIL
+    def test_view_post_detail(self):
+        '''  viewing the post detail  '''
+        post = sample_post(user=self.user)
+        post.category.add(sample_category())
 
-            url = detail_url(post.id)
-            res = self.client.get(url)
+        url = detail_url(post.id)
+        res = self.client.get(url)
 
-            serializer = PostDetailSerializer(post)
+        serializer = PostDetailSerializer(post)
 
-            self.assertEqual(res.data, serializer.data)
+        self.assertEqual(res.data, serializer.data)
+
+    # CREATE
+    def test_create_basic_post(self):
+        payload = {
+            'content': 'AWESOME CONTENT WILL BE HERE',
+            'title': 'New title'
+        }
+
+        res = self.client.post(POST_URL, payload)
+
+        self.assertEqual(res.status_code, status.HTTP_201_CREATED)
+        post = Post.objects.get(id=res.data['id'])
+        for key in payload.keys():
+            self.assertEqual(payload[key], getattr(post, key))
+
+    def create_post_with_category(self):
+        '''  create post with category   '''
+        cat1 = sample_category(name='Travel')
+        cat2 = sample_category(name='Job')
+        payload = {
+            'title': 'Awesome 1',
+            'content': 'blfasfa fadf daf d a',
+            'category': [cat1.id, cat2.id]
+        }
+
+        res = self.client.post(POST_URL, payload)
+        self.assertEqual(res.status_code, status.HTTP_201_CREATED)
+        post = Post.objects.get(id=res.data['id'])
+        categories = post.category.all()
+
+        self.assertEqual(categories.count(), 2)
+        self.assertIn(cat1, categories)
+        self.assertIn(cat2, categories)

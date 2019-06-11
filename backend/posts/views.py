@@ -24,8 +24,8 @@ class CategoryViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Cre
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.PostSerializer
     queryset = Post.objects.all()
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAdminUser, )
+    # authentication_classes = []
+    permission_classes = (IpAccessPermission, IsAdminUser,)
 
     def get_queryset(self):
         return self.queryset.filter(author = self.request.user).order_by('-id')

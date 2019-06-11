@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="95819bd5-ca57-45af-a5fe-2b3aecff60e1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/posts/tests/test_categories_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/posts/tests/test_categories_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/posts/tests/test_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/posts/tests/test_models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/posts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/posts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,34 +13,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/posts/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="43" lean-forward="true" selection-start-column="43" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/posts/tests/test_categories_api.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="29" column="20" lean-forward="true" selection-start-line="19" selection-start-column="36" selection-end-line="29" selection-end-column="20" />
+            <state relative-caret-position="405">
+              <caret line="27" column="4" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
               <folding>
-                <element signature="e#0#46#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="33" selection-end-column="18" />
-              <folding>
-                <element signature="e#307#316#0" expanded="true" />
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,9 +79,9 @@
         <option value="$PROJECT_DIR$/backend/posts/authentication.py" />
         <option value="$PROJECT_DIR$/backend/posts/tests/test_models.py" />
         <option value="$PROJECT_DIR$/backend/posts/tests/test_posts_api.py" />
-        <option value="$PROJECT_DIR$/backend/posts/views.py" />
         <option value="$PROJECT_DIR$/config/settings.py" />
         <option value="$PROJECT_DIR$/backend/posts/tests/test_categories_api.py" />
+        <option value="$PROJECT_DIR$/backend/posts/views.py" />
       </list>
     </option>
   </component>
@@ -120,6 +96,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -160,7 +137,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -396,29 +372,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/posts/views.py">
+    <entry file="file://$PROJECT_DIR$/backend/posts/tests/test_categories_api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="43" lean-forward="true" selection-start-column="43" selection-end-column="43" />
+        <state relative-caret-position="270">
+          <caret line="29" column="20" selection-start-line="19" selection-start-column="36" selection-end-line="29" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="33" selection-end-column="18" />
+          <caret line="32" selection-start-line="32" selection-end-line="33" selection-end-column="18" />
           <folding>
             <element signature="e#307#316#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/posts/tests/test_categories_api.py">
+    <entry file="file://$PROJECT_DIR$/backend/posts/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="29" column="20" lean-forward="true" selection-start-line="19" selection-start-column="36" selection-end-line="29" selection-end-column="20" />
+        <state relative-caret-position="405">
+          <caret line="27" column="4" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
           <folding>
-            <element signature="e#0#46#0" expanded="true" />
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>

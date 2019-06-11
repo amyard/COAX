@@ -9,7 +9,7 @@ from backend.posts import serializers
 
 
 class CategoryViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.CreateModelMixin):
-    # authentication_classes = (TokenAuthentication,)
+    authentication_classes = []
     permission_classes = (IpAccessPermission, IsAdminUser, )
     queryset = Category.objects.all()
     serializer_class = serializers.CategorySerializer
